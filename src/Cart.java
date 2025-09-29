@@ -23,6 +23,11 @@ public class Cart {
             }
         }
     }
+
+    // added method
+    public void clearingCart(){
+        this.items.clear();
+    }
     
     public void viewCartDetails() {
         System.out.println("Cart Details:");
