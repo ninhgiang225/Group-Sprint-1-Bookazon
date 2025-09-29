@@ -3,7 +3,7 @@ public class Book {
     private String author;
     private int yearPublished;
     private double price;
-    private boolean isPaperback;  // true if the book is paperback, false if it is hardcover
+    private boolean isPaperback;  
 
     public Book(String title, String author, int yearPublished, double price, boolean isPaperback) {
         this.title = title;
