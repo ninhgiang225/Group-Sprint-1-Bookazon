@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class User {
     private String name;
-    private String subscription;
+    
     private Cart cart;
     private ArrayList<Order> orders;
     private String shippingAddressLine1;
@@ -18,10 +18,11 @@ public class User {
     private String billingAddressState;
     private String billingAddressZip;
     private String billingAddressCountry;
+    protected double discountRate;
 
-    public User(String name, String subscription) {
+
+    public User(String name) {
         this.name = name;
-        this.subscription = subscription;  // normal, gold, platinum, silver membership
         this.cart = new Cart();
         this.orders = new ArrayList<>();
     }
@@ -30,12 +31,8 @@ public class User {
         return name;
     }
 
-    public String getSubscription() {
-        return subscription;
-    }
-
-    public void setSubscription(String role) {
-        this.subscription = role;
+    public double getDiscountRate() {
+        return discountRate;
     }
 
     public void viewCart() {
@@ -80,7 +77,7 @@ public class User {
     }
 
     public void checkout() {
-        Order order = new Order(cart, this.subscription);
+        Order order = new Order(cart, this);
         order.setShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
         order.setBillingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
         order.setOrderStatus("Order Placed");
