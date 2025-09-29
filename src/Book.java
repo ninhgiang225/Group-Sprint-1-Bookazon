@@ -2,15 +2,15 @@ public class Book {
     private String title;
     private String author;
     private int yearPublished;
-    private double price;
-    private boolean isPaperback;  // true if the book is paperback, false if it is hardcover
+    private float price;
+    private boolean isPaperback;  
 
-    public Book(String title, String author, int yearPublished, double price, boolean isPaperback) {
-        this.title = title;
-        this.author = author;
-        this.yearPublished = yearPublished;
-        this.price = price;
-        this.isPaperback = isPaperback;
+    public Book(String title, String author, int yearPublished, float price, boolean isPaperback) {
+        setTitle(title);
+        setAuthor(author);
+        setYearPublished(yearPublished);
+        setPrice(price);
+        setIsPaperback(isPaperback);
     }
 
     public String getTitle() {
@@ -18,6 +18,9 @@ public class Book {
     }
 
     public void setTitle(String title) {
+        if (!isTitleValid(title)) {
+            throw new IllegalArgumentException("Invalid title.");
+        }
         this.title = title;
     }
 
@@ -26,6 +29,9 @@ public class Book {
     }
 
     public void setAuthor(String author) {
+        if (!isAuthorValid(author)) {
+            throw new IllegalArgumentException("Invalid author.");
+        }
         this.author = author;
     }
 
@@ -34,22 +40,28 @@ public class Book {
     }
 
     public void setYearPublished(int yearPublished) {
+        if (!isYearPublishedValid(yearPublished)) {
+            throw new IllegalArgumentException("Invalid year published.");
+        }
         this.yearPublished = yearPublished;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
+        if (!isPriceValid(price)) {
+            throw new IllegalArgumentException("Invalid price. Must be greater than zero.");
+        }
         this.price = price;
     }
 
-    public boolean isPaperback() {
+    public boolean getIsPaperback() {
         return isPaperback;
     }
 
-    public void setPaperback(boolean isPaperback) {
+    public void setIsPaperback(boolean isPaperback) {
         this.isPaperback = isPaperback;
     }
 
@@ -58,21 +70,22 @@ public class Book {
         System.out.println("Author: " + author);
         System.out.println("Year Published: " + yearPublished);
         System.out.println("Price: $" + price);
+        System.out.println("Paperback: " + isPaperback);
     }
 
-    public boolean isPriceValid() {
+    private boolean isPriceValid(float price) {
         return price > 0;
     }
 
-    public boolean isTitleValid() {
+    private boolean isTitleValid(String title) {
         return title != null && !title.isEmpty();
     }
 
-    public boolean isAuthorValid() {
+    private boolean isAuthorValid(String author) {
         return author != null && !author.isEmpty();
     }
 
-    public boolean isYearPublishedValid() {
+    private boolean isYearPublishedValid(int yearPublished) {
         return yearPublished > 0;
     }
 }
