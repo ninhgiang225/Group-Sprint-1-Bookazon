@@ -64,6 +64,7 @@ public class User {
         order.setDateCreated("2024-01-01");
         order.setUserName(this.name);
         orders.add(order);
+        cart.clearCart();
     }
 }
 
