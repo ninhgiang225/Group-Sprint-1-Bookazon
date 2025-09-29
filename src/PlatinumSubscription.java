@@ -1,7 +1,7 @@
 public class PlatinumSubscription implements Subscription {
     @Override
-    public double applyDiscount(double total) {
-        return total * 0.90; // 10% discount
+    public float applyDiscount(float total) {
+        return total * 0.90f; 
     }
 
     @Override

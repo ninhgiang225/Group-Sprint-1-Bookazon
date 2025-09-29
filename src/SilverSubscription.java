@@ -1,7 +1,7 @@
 public class SilverSubscription implements Subscription {
     @Override
-    public double applyDiscount(double total) {
-        return total * 0.95; // 5% discount
+    public float applyDiscount(float total) {
+        return total * 0.95f; 
     }
 
     @Override

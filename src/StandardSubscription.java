@@ -1,6 +1,6 @@
 public class StandardSubscription implements Subscription {
     @Override
-    public double applyDiscount(double total) {
+    public float applyDiscount(float total) {
         return total; 
     }
 

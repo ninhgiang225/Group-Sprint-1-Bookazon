@@ -1,4 +1,4 @@
 public interface Subscription {
-    double applyDiscount(double total);
+    float applyDiscount(float total);
     String getType();
 }
