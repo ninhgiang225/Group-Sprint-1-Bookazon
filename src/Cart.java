@@ -25,7 +25,7 @@ public class Cart {
     }
 
     // added method
-    public void clearingAllCart(){
+    public void clearingCart(){
         this.items.clear();
     }
     
