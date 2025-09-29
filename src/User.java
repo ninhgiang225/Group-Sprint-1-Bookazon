@@ -17,6 +17,10 @@ public class User {
         this.orders = new ArrayList<>();
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -25,30 +29,26 @@ public class User {
         return discountRate;
     }
 
-    public void viewCart() {
-        cart.viewCartDetails();
-    }
-
     public void setShippingAddress(Address address) {
         this.shippingAddress = address;
+    }
+
+    public Address getShippingAddress() {
+        return shippingAddress;
     }
 
     public void setBillingAddress(Address address) {
         this.billingAddress = address;
     }
 
-    public void addToCart(Book book, int quantity) {
-        cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
+    public Address getBillingAddress() {
+        return billingAddress;
     }
 
-    public void removeFromCart(Book book) {
-        for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(book.getTitle())) {
-                cart.getItems().remove(item);
-                break;
-            }
-        }
+    public Cart getCart() {
+        return cart;
     }
+
 
     public void viewOrders() {
         for (Order order : orders) {
