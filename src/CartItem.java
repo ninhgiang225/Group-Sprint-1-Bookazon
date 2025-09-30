@@ -1,11 +1,9 @@
-import java.math.BigDecimal;
-
 public class CartItem {
     private String itemName;
-    private BigDecimal price;
+    private double price;
     private int quantity;
 
-    public CartItem(String itemName, BigDecimal price, int quantity) {
+    public CartItem(String itemName, double price, int quantity) {
         this.itemName = itemName;
         this.price = price;
         this.quantity = quantity;
@@ -15,7 +13,7 @@ public class CartItem {
         return itemName;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -36,12 +34,12 @@ public class CartItem {
         if (obj == null || getClass() != obj.getClass()) return false;
 
         CartItem other = (CartItem) obj;
-        return itemName.equals(other.itemName) &&            
-               price.compareTo(other.price) == 0 &&      
-               quantity == other.quantity;                     
+        return itemName.equals(other.itemName) &&               // check name
+               Double.compare(price, other.price) == 0 &&       // check price
+               quantity == other.quantity;                      // check quantity
     }
 
-    public BigDecimal getTotalPrice() {
-        return price.multiply(BigDecimal.valueOf(quantity));
+    public double getTotalPrice() {
+        return price * quantity;
     }
 }
