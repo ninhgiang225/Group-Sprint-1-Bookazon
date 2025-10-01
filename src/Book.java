@@ -1,11 +1,13 @@
+import java.math.BigDecimal;
+
 public class Book {
     private String title;
     private String author;
     private int yearPublished;
-    private float price;
-    private boolean isPaperback;  
+    private BigDecimal price;
+    private boolean isPaperback;
 
-    public Book(String title, String author, int yearPublished, float price, boolean isPaperback) {
+    public Book(String title, String author, int yearPublished, BigDecimal price, boolean isPaperback) {
         setTitle(title);
         setAuthor(author);
         setYearPublished(yearPublished);
@@ -46,11 +48,11 @@ public class Book {
         this.yearPublished = yearPublished;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         if (!isPriceValid(price)) {
             throw new IllegalArgumentException("Invalid price. Must be greater than zero.");
         }
@@ -73,8 +75,8 @@ public class Book {
         System.out.println("Paperback: " + isPaperback);
     }
 
-    private boolean isPriceValid(float price) {
-        return price > 0;
+    private boolean isPriceValid(BigDecimal price) {
+        return price.compareTo(new BigDecimal("0")) == 1;
     }
 
     private boolean isTitleValid(String title) {
