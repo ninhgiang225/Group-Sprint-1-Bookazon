@@ -1,4 +1,5 @@
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class BookStore {
@@ -47,7 +48,7 @@ public class BookStore {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, float newPrice, boolean isPaperback) {
+    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, BigDecimal newPrice, boolean isPaperback) {
         book.setTitle(newTitle);
         book.setAuthor(newAuthor);
         book.setYearPublished(newYearPublished);

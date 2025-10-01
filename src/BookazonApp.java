@@ -1,12 +1,14 @@
+import java.math.BigDecimal;
+
 public class BookazonApp {
     public static void main(String[] args) {
 
         BookStore bookStore = new BookStore();
 
         // create books
-        bookStore.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99f, true));
-        bookStore.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99f, false));
-        bookStore.addBook(new Book("1984", "George Orwell", 1949, 8.99f, true));
+        bookStore.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, new BigDecimal("9.99"), true));
+        bookStore.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, new BigDecimal("7.99"), false));
+        bookStore.addBook(new Book("1984", "George Orwell", 1949, new BigDecimal("8.99"), true));
 
         // create users
         bookStore.addUser(new User("Alice"));
