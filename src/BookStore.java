@@ -47,12 +47,12 @@ public class BookStore {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
+    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, float newPrice, boolean isPaperback) {
         book.setTitle(newTitle);
         book.setAuthor(newAuthor);
         book.setYearPublished(newYearPublished);
         book.setPrice(newPrice);
-        book.setPaperback(isPaperback);
+        book.setIsPaperback(isPaperback);
     }
 
     public void updateRole(User user, String role) {
