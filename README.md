@@ -1,7 +1,7 @@
 # 📚 Bookazon: Refactoring for the Future
 
 Welcome to **Bookazon**—where code smells get cleaned up and design principles shine!  
-This project is a refactored online bookstore, built by our team for CS321, Fall 2024.  
+This project is a refactored online bookstore, built by our team, BitWise, for CS321, Fall 2025.  
 We took a legacy codebase and transformed it into a maintainable, extensible, and SOLID-compliant system.
 
 ---
@@ -92,9 +92,6 @@ We took a legacy codebase and transformed it into a maintainable, extensible, an
 - **Burndown chart** to track sprint progress
 ![alt text](<Screenshot 2025-10-02 at 12.10.00 PM.png>)
 
-- **Creative documentation** (like this README!)
-
----
 
 ## 🎨 Why Is This README Different?
 
