@@ -59,6 +59,6 @@ public class Order {
         }
 
         BigDecimal discountRate = BigDecimal.valueOf(user.getDiscountRate());
-        return totalPrice.multiply(discountRate);
+        return totalPrice.multiply(BigDecimal.ONE.subtract(discountRate));
     }
 }
