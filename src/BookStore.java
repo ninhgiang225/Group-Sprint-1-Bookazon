@@ -47,18 +47,4 @@ public class BookStore {
     public void removeUser(User user) {
         users.remove(user);
     }
-
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, BigDecimal newPrice, boolean isPaperback) {
-        book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
-        book.setPrice(newPrice);
-        book.setIsPaperback(isPaperback);
-    }
-
-    public void updateRole(User user, String role) {
-        user.setSubscription(role);
-    }
-
-    
 }
