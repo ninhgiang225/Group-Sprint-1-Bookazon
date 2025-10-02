@@ -92,6 +92,12 @@ We took a legacy codebase and transformed it into a maintainable, extensible, an
 - **Burndown chart** to track sprint progress
 ![alt text](<Screenshot 2025-10-02 at 12.10.00 PM.png>)
 
+Day 1 (Saturday): Team read instructions, gathered requirements, and created UML diagram. Work reduced slightly (50 → 45 points).
+Day 2 (Sunday): Team divided coding tasks, but no major progress yet (45 → 40 points).
+Day 3 (Monday): Main coding progress. Most logic completed, but still buggy (40 → 15 points).
+Day 4 (Tuesday): Focused on README and documentation, no code progress (remains 15 points).
+Day 5 (Wednesday): Final fixes, wrap-up, and submission. All work completed (15 → 0 points).
+
 
 ## 🎨 Why Is This README Different?
 
