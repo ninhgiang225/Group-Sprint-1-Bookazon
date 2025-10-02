@@ -32,6 +32,10 @@ public class User {
         return this.subscription;
     }
 
+    public void setSubscription(String subscription) {
+        this.subscription = subscription;
+    }    
+
     public void setShippingAddress(Address address) {
         this.shippingAddress = address;
     }
