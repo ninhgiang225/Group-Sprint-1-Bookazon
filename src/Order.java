@@ -55,7 +55,7 @@ public class Order {
         BigDecimal totalPrice = BigDecimal.ZERO;
 
         for (CartItem item : items) {
-            totalPrice = totalPrice.add(BigDecimal.valueOf(item.getTotalPrice()));
+            totalPrice = totalPrice.add(item.getTotalPrice());
         }
 
         BigDecimal discountRate = BigDecimal.valueOf(user.getDiscountRate());
