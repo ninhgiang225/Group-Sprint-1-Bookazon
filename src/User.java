@@ -1,4 +1,4 @@
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class User {
@@ -7,7 +7,7 @@ public class User {
     private ArrayList<Order> orders;
     private Address shippingAddress;
     private Address billingAddress;
-    protected double discountRate;
+    protected BigDecimal discountRate;
     protected String subscription;
 
     public User(String name) {
@@ -24,7 +24,7 @@ public class User {
         return name;
     }
 
-    public double getDiscountRate() {
+    public BigDecimal getDiscountRate() {
         return discountRate;
     }
 
