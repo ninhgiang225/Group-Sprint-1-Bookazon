@@ -14,4 +14,9 @@ public class Address {
         this.zip = zip;
         this.country = country;
     }
+
+    @Override
+    public String toString() {
+        return line1 + ", " + line2 + ", " + city + ", " + state + ", " + zip + ", " + country;
+    }
 }
