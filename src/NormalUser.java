@@ -1,9 +1,18 @@
 import java.math.BigDecimal;
 
 public class NormalUser extends User {
+    private static final BigDecimal NORMAL_DISCOUNT_RATE = new BigDecimal("0.0");
+    private static final String NORMAL_SUBSCRIPTION = "normal";
+
     public NormalUser(String name) {
         super(name);
-        this.discountRate = new BigDecimal("0.0");
-        this.subscription = "normal";
+        this.discountRate = NORMAL_DISCOUNT_RATE; 
+        this.subscription = NORMAL_SUBSCRIPTION; 
+    }
+
+    public NormalUser(User otherUser){
+        super(otherUser);
+        this.discountRate = NORMAL_DISCOUNT_RATE;
+        this.subscription = NORMAL_SUBSCRIPTION;
     }
 }
