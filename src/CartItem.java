@@ -5,9 +5,9 @@ public class CartItem {
     private BigDecimal price;
     private int quantity;
 
-    public CartItem(String itemName, BigDecimal price, int quantity) {
-        this.itemName = itemName;
-        this.price = price;
+    public CartItem(Book book, int quantity) {
+        this.itemName = book.getTitle();
+        this.price = book.getPrice();
         this.quantity = quantity;
     }
 
@@ -24,7 +24,7 @@ public class CartItem {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity < 0) {
+        if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity cannot be negative.");
         }
         this.quantity = quantity;

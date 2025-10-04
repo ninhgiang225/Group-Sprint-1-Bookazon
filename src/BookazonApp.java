@@ -17,11 +17,9 @@ public class BookazonApp {
 
                 // add books to cart
                 bookStore.getUsers().get(0).getCart().addItem(
-                                new CartItem(bookStore.getBooks().get(0).getTitle(),
-                                                bookStore.getBooks().get(0).getPrice(), 1));
+                                new CartItem(bookStore.getBooks().get(0), 1));
                 bookStore.getUsers().get(0).getCart().addItem(
-                                new CartItem(bookStore.getBooks().get(1).getTitle(),
-                                                bookStore.getBooks().get(1).getPrice(), 2));
+                                new CartItem(bookStore.getBooks().get(1), 2));
 
                 // view cart
                 bookStore.getUsers().get(0).getCart().viewCartDetails();
