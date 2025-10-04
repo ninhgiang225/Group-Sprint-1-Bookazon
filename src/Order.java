@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Order {
@@ -9,11 +10,13 @@ public class Order {
     private Address shippingAddress;
     private Address billingAddress;
     private ArrayList<CartItem> items;
-    private BigDecimal orderPrice;
+    private BigDecimal originalOrderPrice;
+    private BigDecimal discountAmount;
+    private BigDecimal discountedOrderPrice;
 
     public Order(Cart cart, User user) {
         this.items = cart.getItems();
-        this.orderPrice = calculatePrice(user);
+        this.discountedOrderPrice = calculatePrice(user);
     }
 
     public void setShippingAddress(Address address) {
@@ -48,7 +51,9 @@ public class Order {
         System.out.println("Order Status: " + orderStatus);
         System.out.println("Shipping Address: " + (shippingAddress != null ? shippingAddress : "N/A"));
         System.out.println("Billing Address: " + (billingAddress != null ? billingAddress : "N/A"));
-        System.out.println("Order Price: $" + orderPrice);
+        System.out.println("Original Order Price: $" + originalOrderPrice);
+        System.out.println("Discount: - $" + discountAmount);
+        System.out.println("Discounted Order Price: $" + discountedOrderPrice);
     }
 
     private BigDecimal calculatePrice(User user) {
@@ -57,8 +62,9 @@ public class Order {
         for (CartItem item : items) {
             totalPrice = totalPrice.add(item.getTotalPrice());
         }
-
+        this.originalOrderPrice = totalPrice.setScale(2, RoundingMode.HALF_UP);
         BigDecimal discountRate = user.getDiscountRate();
-        return totalPrice.multiply(BigDecimal.ONE.subtract(discountRate));
+        this.discountAmount = this.originalOrderPrice.multiply(discountRate).setScale(2, RoundingMode.HALF_UP);
+        return this.originalOrderPrice.subtract(this.discountAmount);
     }
 }
