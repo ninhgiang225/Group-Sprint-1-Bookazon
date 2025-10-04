@@ -1,18 +1,17 @@
 import java.math.BigDecimal;
 
-public class Book {
+public abstract class Book {
     private String title;
     private String author;
     private int yearPublished;
     private BigDecimal price;
-    private boolean isPaperback;
+    protected String bookType;
 
-    public Book(String title, String author, int yearPublished, BigDecimal price, boolean isPaperback) {
+    public Book(String title, String author, int yearPublished, BigDecimal price) {
         setTitle(title);
         setAuthor(author);
         setYearPublished(yearPublished);
         setPrice(price);
-        setIsPaperback(isPaperback);
     }
 
     public String getTitle() {
@@ -59,12 +58,8 @@ public class Book {
         this.price = price;
     }
 
-    public boolean getIsPaperback() {
-        return isPaperback;
-    }
-
-    public void setIsPaperback(boolean isPaperback) {
-        this.isPaperback = isPaperback;
+    public String getBookType() {
+        return this.bookType;
     }
 
     public void printBookDetails() {
@@ -72,7 +67,7 @@ public class Book {
         System.out.println("Author: " + author);
         System.out.println("Year Published: " + yearPublished);
         System.out.println("Price: $" + price);
-        System.out.println("Paperback: " + isPaperback);
+        System.out.println("Book Type: " + bookType);
     }
 
     private boolean isPriceValid(BigDecimal price) {
