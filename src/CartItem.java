@@ -8,7 +8,7 @@ public class CartItem {
     public CartItem(Book book, int quantity) {
         this.itemName = book.getTitle();
         this.price = book.getPrice();
-        this.quantity = quantity;
+        setQuantity(quantity);
     }
 
     public String getName() {
@@ -24,9 +24,7 @@ public class CartItem {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity cannot be negative.");
-        }
+        validateQuantity(quantity);
         this.quantity = quantity;
     }
 
@@ -43,5 +41,11 @@ public class CartItem {
 
     public BigDecimal getTotalPrice() {
         return price.multiply(BigDecimal.valueOf(quantity));
+    }
+
+    private void validateQuantity(int quantity){
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity must be positive.");
+        }
     }
 }
