@@ -12,8 +12,8 @@ public class BookazonApp {
                 bookStore.addBook(new AudioBook("1984", "George Orwell", 1949, new BigDecimal("8.99")));
 
                 // create users
-                bookStore.addUser(new User("Alice"));
-                bookStore.addUser(new User("Bob"));
+                bookStore.addUser(new GoldUser("Alice"));
+                bookStore.addUser(new PlatinumUser("Bob"));
 
                 // add books to cart
                 bookStore.getUsers().get(0).getCart().addItem(

@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class User {
+public abstract class User {
     private String name;
     private Cart cart;
     private ArrayList<Order> orders;
@@ -14,6 +14,14 @@ public class User {
         this.name = name;
         this.cart = new Cart();
         this.orders = new ArrayList<>();
+    }
+
+    public User(User otherUser){
+        this.name = otherUser.getName();
+        this.cart = otherUser.getCart();
+        this.orders = otherUser.getOrders();
+        this.shippingAddress = otherUser.getShippingAddress();
+        this.billingAddress = otherUser.getBillingAddress();
     }
 
     public void setName(String name) {
@@ -50,6 +58,10 @@ public class User {
 
     public Cart getCart() {
         return cart;
+    }
+
+    public ArrayList<Order> getOrders(){
+        return orders;
     }
 
     public void viewOrders() {
