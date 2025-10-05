@@ -27,8 +27,8 @@ public abstract class User {
         this.name = otherUser.getName();
         this.cart = otherUser.getCart();
         this.orders = otherUser.getOrders();
-        this.shippingAddress = otherUser.getShippingAddress();
-        this.billingAddress = otherUser.getBillingAddress();
+        setShippingAddress(otherUser.getShippingAddress());
+        setBillingAddress(otherUser.getBillingAddress());
     }
 
     public void setName(String name) {
@@ -48,6 +48,7 @@ public abstract class User {
     }
 
     public void setShippingAddress(Address address) {
+        validateAddress(address);
         this.shippingAddress = address;
     }
 
@@ -56,6 +57,7 @@ public abstract class User {
     }
 
     public void setBillingAddress(Address address) {
+        validateAddress(address);
         this.billingAddress = address;
     }
 
@@ -79,12 +81,18 @@ public abstract class User {
 
     public void checkout() {
         Order order = new Order(cart, this);
-        order.setShippingAddress(new Address("123 Main St", "", "Springfield", "IL", "62701", "USA"));
-        order.setBillingAddress(new Address("123 Main St", "", "Springfield", "IL", "62701", "USA"));
+        order.setShippingAddress(this.shippingAddress);
+        order.setBillingAddress(this.billingAddress);
         order.setOrderStatus("Order Placed");
         order.setDateCreated(LocalDate.now());
         order.setUserName(this.name);
         orders.add(order);
         cart.clearCart();
+    }
+
+    private void validateAddress(Address address) {
+        if (address == null) {
+            throw new IllegalArgumentException("Invalid Address!");
+        }
     }
 }
