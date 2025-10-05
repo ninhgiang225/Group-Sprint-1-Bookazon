@@ -1,6 +1,10 @@
+package bookazon;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+
+import bookazon.users.User;
 
 public class Order {
     private String dateCreated;

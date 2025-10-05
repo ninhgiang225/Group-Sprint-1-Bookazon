@@ -1,3 +1,5 @@
+package bookazon.users;
+
 import java.math.BigDecimal;
 
 public class SilverUser extends User {
@@ -10,7 +12,7 @@ public class SilverUser extends User {
         this.subscription = SILVER_SUBSCRIPTION;
     }
 
-    public SilverUser(User otherUser){
+    public SilverUser(User otherUser) {
         super(otherUser);
         this.discountRate = SILVER_DISCOUNT_RATE;
         this.subscription = SILVER_SUBSCRIPTION;

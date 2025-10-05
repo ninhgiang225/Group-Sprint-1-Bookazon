@@ -1,6 +1,9 @@
+package bookazon;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import bookazon.books.Book;
+import bookazon.users.User;
 
 public class BookStore {
 
@@ -12,11 +15,11 @@ public class BookStore {
         users = new ArrayList<>();
     }
 
-    public ArrayList<Book> getBooks(){
+    public ArrayList<Book> getBooks() {
         return this.books;
     }
 
-    public ArrayList<User> getUsers(){
+    public ArrayList<User> getUsers() {
         return this.users;
     }
 

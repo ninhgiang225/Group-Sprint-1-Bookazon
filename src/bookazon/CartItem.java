@@ -1,4 +1,8 @@
+package bookazon;
+
 import java.math.BigDecimal;
+
+import bookazon.books.Book;
 
 public class CartItem {
     private String itemName;
@@ -30,20 +34,22 @@ public class CartItem {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
 
         CartItem other = (CartItem) obj;
-        return itemName.equals(other.itemName) &&            
-               price.compareTo(other.price) == 0 &&      
-               quantity == other.quantity;                     
+        return itemName.equals(other.itemName) &&
+                price.compareTo(other.price) == 0 &&
+                quantity == other.quantity;
     }
 
     public BigDecimal getTotalPrice() {
         return price.multiply(BigDecimal.valueOf(quantity));
     }
 
-    private void validateQuantity(int quantity){
+    private void validateQuantity(int quantity) {
         if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be positive.");
         }

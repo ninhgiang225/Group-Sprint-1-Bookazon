@@ -1,3 +1,5 @@
+package bookazon.users;
+
 import java.math.BigDecimal;
 
 public class GoldUser extends User {
@@ -10,7 +12,7 @@ public class GoldUser extends User {
         this.subscription = GOLD_SUBSCRIPTION;
     }
 
-    public GoldUser(User otherUser){
+    public GoldUser(User otherUser) {
         super(otherUser);
         this.discountRate = GOLD_DISCOUNT_RATE;
         this.subscription = GOLD_SUBSCRIPTION;

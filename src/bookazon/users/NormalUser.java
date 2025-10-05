@@ -1,3 +1,5 @@
+package bookazon.users;
+
 import java.math.BigDecimal;
 
 public class NormalUser extends User {
@@ -6,11 +8,11 @@ public class NormalUser extends User {
 
     public NormalUser(String name) {
         super(name);
-        this.discountRate = NORMAL_DISCOUNT_RATE; 
-        this.subscription = NORMAL_SUBSCRIPTION; 
+        this.discountRate = NORMAL_DISCOUNT_RATE;
+        this.subscription = NORMAL_SUBSCRIPTION;
     }
 
-    public NormalUser(User otherUser){
+    public NormalUser(User otherUser) {
         super(otherUser);
         this.discountRate = NORMAL_DISCOUNT_RATE;
         this.subscription = NORMAL_SUBSCRIPTION;
