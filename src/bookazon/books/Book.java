@@ -1,15 +1,16 @@
 package bookazon.books;
 
 import java.math.BigDecimal;
+import java.time.Year;
 
 public abstract class Book {
     private String title;
     private String author;
-    private int yearPublished;
+    private Year yearPublished;
     private BigDecimal price;
     protected String bookType;
 
-    public Book(String title, String author, int yearPublished, BigDecimal price) {
+    public Book(String title, String author, Year yearPublished, BigDecimal price) {
         setTitle(title);
         setAuthor(author);
         setYearPublished(yearPublished);
@@ -34,12 +35,11 @@ public abstract class Book {
         this.author = author;
     }
 
-    public int getYearPublished() {
+    public Year getYearPublished() {
         return yearPublished;
     }
 
-    public void setYearPublished(int yearPublished) {
-        validateYearPublished(yearPublished);
+    public void setYearPublished(Year yearPublished) {
         this.yearPublished = yearPublished;
     }
 
@@ -79,12 +79,6 @@ public abstract class Book {
     private void validateAuthor(String author) {
         if (author == null || author.isEmpty()) {
             throw new IllegalArgumentException("Invalid author.");
-        }
-    }
-
-    private void validateYearPublished(int yearPublished) {
-        if (yearPublished <= 0) {
-            throw new IllegalArgumentException("Invalid year published.");
         }
     }
 }

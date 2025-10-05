@@ -3,12 +3,13 @@ package bookazon;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 import bookazon.users.User;
 
 public class Order {
-    private String dateCreated;
-    private String dateShipped;
+    private LocalDate dateCreated;
+    private LocalDate dateShipped;
     private String userName;
     private String orderStatus;
     private Address shippingAddress;
@@ -35,11 +36,11 @@ public class Order {
         this.orderStatus = status;
     }
 
-    public void setDateCreated(String date) {
+    public void setDateCreated(LocalDate date) {
         this.dateCreated = date;
     }
 
-    public void setDateShipped(String date) {
+    public void setDateShipped(LocalDate date) {
         this.dateShipped = date;
     }
 
@@ -50,7 +51,7 @@ public class Order {
     public void printOrderDetails() {
         System.out.println("Order Details:");
         System.out.println("Date Created: " + dateCreated);
-        System.out.println("Date Shipped: " + dateShipped);
+        System.out.println("Date Shipped: " + (dateShipped != null ? dateShipped : "Order not shipped"));
         System.out.println("User Name: " + userName);
         System.out.println("Order Status: " + orderStatus);
         System.out.println("Shipping Address: " + (shippingAddress != null ? shippingAddress : "N/A"));
