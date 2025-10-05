@@ -1,6 +1,7 @@
 package bookazon;
 
 import java.math.BigDecimal;
+import java.time.Year;
 
 import bookazon.books.AudioBook;
 import bookazon.books.Ebook;
@@ -14,10 +15,10 @@ public class BookazonApp {
                 BookStore bookStore = new BookStore();
 
                 // create books
-                bookStore.addBook(new PaperbackBook("The Great Gatsby", "F. Scott Fitzgerald", 1925,
+                bookStore.addBook(new PaperbackBook("The Great Gatsby", "F. Scott Fitzgerald", Year.of(1925),
                                 new BigDecimal("9.99")));
-                bookStore.addBook(new Ebook("To Kill a Mockingbird", "Harper Lee", 1960, new BigDecimal("7.99")));
-                bookStore.addBook(new AudioBook("1984", "George Orwell", 1949, new BigDecimal("8.99")));
+                bookStore.addBook(new Ebook("To Kill a Mockingbird", "Harper Lee", Year.of(1960), new BigDecimal("7.99")));
+                bookStore.addBook(new AudioBook("1984", "George Orwell", Year.of(1949), new BigDecimal("8.99")));
 
                 // create users
                 bookStore.addUser(new GoldUser("Alice"));
