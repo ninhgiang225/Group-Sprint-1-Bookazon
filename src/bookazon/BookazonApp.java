@@ -6,6 +6,7 @@ import java.time.Year;
 import bookazon.books.AudioBook;
 import bookazon.books.Ebook;
 import bookazon.books.PaperbackBook;
+import bookazon.orders.OrderManager;
 import bookazon.users.GoldUser;
 import bookazon.users.PlatinumUser;
 
@@ -43,7 +44,13 @@ public class BookazonApp {
                 // checkout
                 bookStore.getUsers().get(0).checkout();
 
-                // view order details
-                bookStore.getUsers().get(0).viewOrders();
+                // view all orders before shipping
+                OrderManager.viewAllOrders();
+
+                // ship all orders
+                OrderManager.shipAllOrders();
+
+                // view all orders after shipping 
+                OrderManager.viewAllOrders();
         }
 }
