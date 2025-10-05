@@ -1,17 +1,20 @@
-package bookazon;
+package bookazon.orders;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
+import bookazon.Address;
+import bookazon.Cart;
+import bookazon.CartItem;
 import bookazon.users.User;
 
 public class Order {
     private LocalDate dateCreated;
     private LocalDate dateShipped;
     private String userName;
-    private String orderStatus;
+    private OrderStatus orderStatus;
     private Address shippingAddress;
     private Address billingAddress;
     private ArrayList<CartItem> items;
@@ -32,8 +35,12 @@ public class Order {
         this.billingAddress = address;
     }
 
-    public void setOrderStatus(String status) {
+    public void setOrderStatus(OrderStatus status) {
         this.orderStatus = status;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return this.orderStatus;
     }
 
     public void setDateCreated(LocalDate date) {
@@ -46,6 +53,10 @@ public class Order {
 
     public void setUserName(String name) {
         this.userName = name;
+    }
+
+    public void shipOrder(){
+        
     }
 
     public void printOrderDetails() {

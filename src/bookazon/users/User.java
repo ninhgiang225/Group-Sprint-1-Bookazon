@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 import bookazon.Address;
 import bookazon.Cart;
-import bookazon.Order;
+import bookazon.orders.Order;
+import bookazon.orders.OrderManager;
 
 public abstract class User {
     private String name;
@@ -48,7 +49,7 @@ public abstract class User {
     }
 
     public void setShippingAddress(Address address) {
-        validateAddress(address);
+        Address.validateAddress(address);
         this.shippingAddress = address;
     }
 
@@ -57,7 +58,7 @@ public abstract class User {
     }
 
     public void setBillingAddress(Address address) {
-        validateAddress(address);
+        Address.validateAddress(address);
         this.billingAddress = address;
     }
 
@@ -81,20 +82,8 @@ public abstract class User {
 
     public void checkout() {
         Order order = new Order(cart, this);
-        validateAddress(this.shippingAddress);
-        validateAddress(this.billingAddress);
-        order.setShippingAddress(this.shippingAddress);
-        order.setBillingAddress(this.billingAddress);
-        order.setOrderStatus("Order Placed");
-        order.setDateCreated(LocalDate.now());
-        order.setUserName(this.name);
+        OrderManager.placeOrder(order, this);
         orders.add(order);
         cart.clearCart();
-    }
-
-    private void validateAddress(Address address) {
-        if (address == null) {
-            throw new IllegalArgumentException("Invalid Address!");
-        }
     }
 }
