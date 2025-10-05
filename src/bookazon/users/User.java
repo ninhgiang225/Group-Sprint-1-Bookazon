@@ -81,6 +81,8 @@ public abstract class User {
 
     public void checkout() {
         Order order = new Order(cart, this);
+        validateAddress(this.shippingAddress);
+        validateAddress(this.billingAddress);
         order.setShippingAddress(this.shippingAddress);
         order.setBillingAddress(this.billingAddress);
         order.setOrderStatus("Order Placed");
