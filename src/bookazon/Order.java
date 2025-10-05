@@ -51,7 +51,7 @@ public class Order {
     public void printOrderDetails() {
         System.out.println("Order Details:");
         System.out.println("Date Created: " + dateCreated);
-        System.out.println("Date Shipped: " + dateShipped);
+        System.out.println("Date Shipped: " + (dateShipped != null ? dateShipped : "Order not shipped"));
         System.out.println("User Name: " + userName);
         System.out.println("Order Status: " + orderStatus);
         System.out.println("Shipping Address: " + (shippingAddress != null ? shippingAddress : "N/A"));
