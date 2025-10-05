@@ -19,9 +19,7 @@ public abstract class Book {
     }
 
     public void setTitle(String title) {
-        if (!isTitleValid(title)) {
-            throw new IllegalArgumentException("Invalid title.");
-        }
+        validateTitle(title);
         this.title = title;
     }
 
@@ -30,9 +28,7 @@ public abstract class Book {
     }
 
     public void setAuthor(String author) {
-        if (!isAuthorValid(author)) {
-            throw new IllegalArgumentException("Invalid author.");
-        }
+        validateAuthor(author);
         this.author = author;
     }
 
@@ -41,9 +37,7 @@ public abstract class Book {
     }
 
     public void setYearPublished(int yearPublished) {
-        if (!isYearPublishedValid(yearPublished)) {
-            throw new IllegalArgumentException("Invalid year published.");
-        }
+        validateYearPublished(yearPublished);
         this.yearPublished = yearPublished;
     }
 
@@ -52,9 +46,7 @@ public abstract class Book {
     }
 
     public void setPrice(BigDecimal price) {
-        if (!isPriceValid(price)) {
-            throw new IllegalArgumentException("Invalid price. Must be greater than zero.");
-        }
+        validatePrice(price);
         this.price = price;
     }
 
@@ -70,19 +62,27 @@ public abstract class Book {
         System.out.println("Book Type: " + bookType);
     }
 
-    private boolean isPriceValid(BigDecimal price) {
-        return price.compareTo(new BigDecimal("0")) == 1;
+    private void validatePrice(BigDecimal price) {
+        if (price.compareTo(new BigDecimal("0")) <= 0) {
+            throw new IllegalArgumentException("Invalid price. Must be greater than zero.");
+        }
     }
 
-    private boolean isTitleValid(String title) {
-        return title != null && !title.isEmpty();
+    private void validateTitle(String title) {
+        if (title == null || title.isEmpty()) {
+            throw new IllegalArgumentException("Invalid title.");
+        }
     }
 
-    private boolean isAuthorValid(String author) {
-        return author != null && !author.isEmpty();
+    private void validateAuthor(String author) {
+        if (author == null || author.isEmpty()) {
+            throw new IllegalArgumentException("Invalid author.");
+        }
     }
 
-    private boolean isYearPublishedValid(int yearPublished) {
-        return yearPublished > 0;
+    private void validateYearPublished(int yearPublished) {
+        if (yearPublished <= 0) {
+            throw new IllegalArgumentException("Invalid year published.");
+        }
     }
 }
