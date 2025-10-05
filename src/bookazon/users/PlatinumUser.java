@@ -1,3 +1,5 @@
+package bookazon.users;
+
 import java.math.BigDecimal;
 
 public class PlatinumUser extends User {

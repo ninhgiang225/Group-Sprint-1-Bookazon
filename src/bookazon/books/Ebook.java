@@ -1,3 +1,5 @@
+package bookazon.books;
+
 import java.math.BigDecimal;
 
 public class Ebook extends Book {

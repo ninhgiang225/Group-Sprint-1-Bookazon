@@ -1,4 +1,12 @@
+package bookazon;
+
 import java.math.BigDecimal;
+
+import bookazon.books.AudioBook;
+import bookazon.books.Ebook;
+import bookazon.books.PaperbackBook;
+import bookazon.users.GoldUser;
+import bookazon.users.PlatinumUser;
 
 public class BookazonApp {
         public static void main(String[] args) {

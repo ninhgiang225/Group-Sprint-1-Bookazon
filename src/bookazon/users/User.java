@@ -1,5 +1,11 @@
+package bookazon.users;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import bookazon.Address;
+import bookazon.Cart;
+import bookazon.Order;
 
 public abstract class User {
     private String name;
@@ -16,7 +22,7 @@ public abstract class User {
         this.orders = new ArrayList<>();
     }
 
-    public User(User otherUser){
+    public User(User otherUser) {
         this.name = otherUser.getName();
         this.cart = otherUser.getCart();
         this.orders = otherUser.getOrders();
@@ -60,7 +66,7 @@ public abstract class User {
         return cart;
     }
 
-    public ArrayList<Order> getOrders(){
+    public ArrayList<Order> getOrders() {
         return orders;
     }
 

@@ -1,3 +1,5 @@
+package bookazon;
+
 public class Address {
     private String line1;
     private String line2;
