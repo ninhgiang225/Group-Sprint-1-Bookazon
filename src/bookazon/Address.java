@@ -21,4 +21,10 @@ public class Address {
     public String toString() {
         return line1 + ", " + line2 + ", " + city + ", " + state + ", " + zip + ", " + country;
     }
+
+    public static void validateAddress(Address address) {
+        if (address == null) {
+            throw new IllegalArgumentException("Invalid Address!");
+        }
+    }
 }
